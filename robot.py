@@ -28,7 +28,11 @@ class Robot:
                 distance_list = [*distance_list[1:21], current_distance]
 
                 time_checkpoint = time.time()
-
-            self.average_distance = sum(distance_list) / len(distance_list)
+            
+            total_distance = sum(distance_list)
+            try:
+                self.average_distance = sum(distance_list) / len(distance_list)
+            except ZeroDivisionError:
+                self.average_distance = 0
 
             print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot()}')
