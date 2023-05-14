@@ -31,4 +31,4 @@ class Robot:
 
             self.average_distance = sum(distance_list) / len(distance_list)
 
-            print(self.navigate_robot())
+            print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot()}')
