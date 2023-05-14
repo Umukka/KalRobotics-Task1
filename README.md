@@ -1,5 +1,4 @@
 # KalRobotics Task1
-
 This is the implementation of first task.
 
 ### ultrasonic_sensor.py
