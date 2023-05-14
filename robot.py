@@ -30,13 +30,15 @@ class Robot:
                 distance_list = [*distance_list[1:21], current_distance]
 
                 sensor_period_stamp = time.time()
-            
+
             if time.time() - main_period_stamp > 0.5:
                 try:
-                    self.average_distance = sum(distance_list) / len(distance_list)
+                    self.average_distance = sum(
+                        distance_list) / len(distance_list)
                 except ZeroDivisionError:
                     self.average_distance = 0
 
-                print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot(self.average_distance)}')
+                print(
+                    f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot(self.average_distance)}')
 
                 main_period_stamp = time.time()
