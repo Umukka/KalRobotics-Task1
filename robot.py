@@ -9,9 +9,10 @@ class Robot:
     distance_threshold = 10
     average_distance: float = 0
 
-    def navigate_robot(self):
-        if self.average_distance < self.distance_threshold:
-            return " Stop"
+    @classmethod
+    def navigate_robot(cls, distance):
+        if distance < cls.distance_threshold:
+            return "Stop"
         else:
             return "Continue"
 
@@ -36,6 +37,6 @@ class Robot:
                 except ZeroDivisionError:
                     self.average_distance = 0
 
-                print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot()}')
+                print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot(self.average_distance)}')
 
                 main_period_stamp = time.time()
