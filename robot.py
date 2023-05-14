@@ -20,19 +20,22 @@ class Robot:
 
         distance_sensor = DummyUltrasonicSensor(random_data_generator(0, 18))
 
-        time_checkpoint = time.time()
+        sensor_period_stamp = time.time()
+        main_period_stamp = time.time()
         while True:
-            if time.time() - time_checkpoint >= 10:
+            if time.time() - sensor_period_stamp >= 0.1:
                 current_distance = distance_sensor.get_distance()
 
                 distance_list = [*distance_list[1:21], current_distance]
 
-                time_checkpoint = time.time()
+                sensor_period_stamp = time.time()
             
-            total_distance = sum(distance_list)
-            try:
-                self.average_distance = sum(distance_list) / len(distance_list)
-            except ZeroDivisionError:
-                self.average_distance = 0
+            if time.time() - main_period_stamp > 0.5:
+                try:
+                    self.average_distance = sum(distance_list) / len(distance_list)
+                except ZeroDivisionError:
+                    self.average_distance = 0
 
-            print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot()}')
+                print(f'Average distance = {self.average_distance} | navigating robot >> {self.navigate_robot()}')
+
+                main_period_stamp = time.time()
