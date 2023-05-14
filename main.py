@@ -1,5 +1,8 @@
+from robot import Robot
+
 def main():
-    pass
+    robot = Robot()
+    robot.start()
 
 
 if __name__ == '__main__':
