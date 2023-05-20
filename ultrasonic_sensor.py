@@ -34,5 +34,5 @@ class DummyUltrasonicSensor:
     def __init__(self, data_stream: Generator[float, None, None]):
         self.data_stream = data_stream
 
-    def get_distance(self):
+    def get_distance(self) -> float:
         return next(self.data_stream)
