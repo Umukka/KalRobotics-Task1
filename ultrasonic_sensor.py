@@ -10,15 +10,11 @@ def random_data_generator(start: float, end: float) -> float:
 
 def file_data_generator(file_path: str) -> float:
     with open(file_path) as file:
-        data_list = []
         for i, line in enumerate(file.readlines()):
             try:
-                data_list.append(line)
+                yield float(line)
             except ValueError:
                 raise ValueError(f"Invalid Line! >> {i+1}")
-
-        for data in data_list:
-            yield data
 
 
 class DummyUltrasonicSensor:
