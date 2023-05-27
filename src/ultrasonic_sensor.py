@@ -1,6 +1,6 @@
-import random
-
 from typing import Generator
+
+import random
 
 
 def random_data_generator(start: float, end: float) -> float:
