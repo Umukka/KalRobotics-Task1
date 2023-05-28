@@ -2,7 +2,7 @@ from typing import List
 
 import time
 
-from ultrasonic_sensor import DummyUltrasonicSensor, random_data_generator
+from ultrasonic_sensor import DummyDistanceSensor, random_data_generator
 
 
 class Robot:
@@ -19,7 +19,7 @@ class Robot:
     def start(self):
         distance_list = []
 
-        distance_sensor = DummyUltrasonicSensor(random_data_generator(0, 18))
+        distance_sensor = DummyDistanceSensor(random_data_generator(0, 18))
 
         sensor_period_stamp = time.time()
         main_period_stamp = time.time()

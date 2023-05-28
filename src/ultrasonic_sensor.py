@@ -17,8 +17,8 @@ def file_data_generator(file_path: str) -> float:
                 raise ValueError(f"Invalid Line! >> {i+1}")
 
 
-class DummyUltrasonicSensor:
-    """A dummy ultrasonic sensor class to be used for testing.
+class DummyDistanceSensor:
+    """A dummy distance sensor class to be used for testing.
 
     Attributes
     ----------
